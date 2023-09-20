@@ -38,7 +38,12 @@ body {
   font-size: 1.6rem;
   background-repeat: no-repeat;
   background-size: 100%;
-  background-image: linear-gradient(180deg, #fbdb9e 0%, #fff 100%);
+  background-image: linear-gradient(
+    180deg,
+    #fbdb9e 0%,
+    rgba(255, 255, 255, 0.9) 53.93%,
+    #fbdb9e 100%
+  );
   min-height: 100dvh;
 }
 * {
@@ -92,6 +97,19 @@ nav {
 nav.active {
   visibility: visible;
   transform: translateX(0%);
+}
+
+nav ul li a {
+  transition: border-bottom 350ms ease-in-out;
+  padding-bottom: 5px;
+}
+
+nav ul li a:hover {
+  border-bottom: 1px solid var(--primary);
+}
+
+.reseaux a:hover {
+  color: red;
 }
 
 .icon-svg {
@@ -207,12 +225,39 @@ figure .content .believemy {
   margin-bottom: 120px;
 }
 
-.swiper {
+.mesprojets {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 55px;
+  padding: 0 16px;
+}
+
+.cardSlide {
+  width: 300px;
+  height: 450px;
+  border-radius: 16px;
+  border: 2px solid var(--primary);
+  background: rgba(241, 241, 241, 0.35);
+  display: flex;
+  flex-direction: column;
+}
+
+.cardSlide h2 {
+  text-align: center;
+  padding: 25px 0 25px 0;
+  font-size: 2em;
+}
+
+.swiper,
+.project {
   width: 240px;
   height: 320px;
 }
 
-.swiper-slide {
+.swiper-slide,
+.project {
   border-radius: 16px;
   border: 2px solid #3e3e3e;
   padding: 35px 16px;
@@ -226,7 +271,8 @@ figure .content .believemy {
   justify-content: start;
 }
 
-.swiper-slide .headerTitle h3 {
+.swiper-slide .headerTitle h3,
+.project .headerTitle h3 {
   font-size: 1.5em;
 }
 
@@ -236,11 +282,13 @@ figure .content .believemy {
   margin-left: -26px;
 }
 
-.swiper-slide .contentMiddle {
+.swiper-slide .contentMiddle,
+.project .contentMiddle {
   margin-top: 35px;
 }
 
-.swiper-slide .contentMiddle .tag {
+.swiper-slide .contentMiddle .tag,
+.project .contentMiddle .tag {
   display: block;
   width: 74px;
   height: 21px;
@@ -250,7 +298,8 @@ figure .content .believemy {
   margin-top: 35px;
   font-weight: 700;
 }
-.swiper-slide .contentMiddle .tagBtn {
+.swiper-slide .contentMiddle .tagBtn,
+.project .contentMiddle .tagBtn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -265,11 +314,43 @@ figure .content .believemy {
   left: -37px;
 }
 
+.project {
+  margin: 0 0 0 25px;
+}
+
+footer {
+  border-top: 1px solid var(--primary);
+  padding: 42px 32px;
+}
+footer .img {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
 @media screen and (min-width: 319px) {
   nav ul {
     display: flex;
     flex-direction: column;
     gap: 28px;
+  }
+}
+
+@media screen and (min-width: 375px) {
+  .swiper-button-next {
+    right: -60px;
+  }
+  .swiper-button-prev {
+    left: -60px;
+  }
+}
+
+@media screen and (min-width: 425px) {
+  .swiper-button-next {
+    right: -64px;
+  }
+  .swiper-button-prev {
+    left: -64px;
   }
 }
 
@@ -319,15 +400,58 @@ figure .content .believemy {
     margin: 32px 0 0;
   }
   .swiper-button-next {
-    right: -50px;
+    right: -60px;
   }
   .swiper-button-prev {
-    left: -50px;
+    left: -60px;
+  }
+
+  .cardSlide h2 {
+    text-align: left;
+    padding: 25px 0 25px 25px;
+  }
+
+  footer {
+    flex-direction: row;
+    justify-content: center;
+    width: 700px;
+    margin: 0 auto;
+    border: 1px solid var(--primary);
+    border-radius: 16px;
+    margin-bottom: 120px;
+  }
+
+  footer .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer .containerLinks {
+    text-align: center;
   }
 }
 @media screen and (min-width: 1024px) {
   .swiper-button-next,
   .swiper-button-prev {
     display: none;
+  }
+  .mesprojets {
+    flex-direction: row;
+  }
+
+  footer {
+    width: 1000px;
+  }
+}
+@media screen and (min-width: 1200px) {
+  footer {
+    width: 1100px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  footer {
+    width: 1400px;
   }
 }
