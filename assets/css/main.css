@@ -67,6 +67,16 @@ header {
   position: relative;
 }
 
+.container {
+  margin: 120px 32px;
+  text-align: center;
+}
+
+.container h2,
+.container h3 {
+  margin: 64px 0;
+}
+
 .containerNav {
   display: flex;
   align-items: center;
@@ -99,22 +109,34 @@ nav.active {
   transform: translateX(0%);
 }
 
-nav ul li a {
+nav ul li {
   transition: border-bottom 350ms ease-in-out;
   padding-bottom: 5px;
 }
 
-nav ul li a:hover {
+nav ul li:hover {
   border-bottom: 1px solid var(--primary);
 }
 
-.reseaux a:hover {
-  color: red;
+.reseaux {
+  display: flex;
+  gap: 24px;
+}
+
+.reseaux i,
+.contactMe,
+.tagBtn {
+  transition: transform 350ms ease-in-out;
+}
+
+.reseaux i:hover,
+.contactMe:hover,
+.tagBtn:hover {
+  transform: scale(1.1);
 }
 
 .icon-svg {
-  aspect-ratio: 1/1;
-  width: 40px;
+  font-size: 2em;
 }
 
 .btnNav {
@@ -236,12 +258,13 @@ figure .content .believemy {
 
 .cardSlide {
   width: 300px;
-  height: 450px;
+  height: 500px;
   border-radius: 16px;
   border: 2px solid var(--primary);
   background: rgba(241, 241, 241, 0.35);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .cardSlide h2 {
@@ -308,10 +331,14 @@ figure .content .believemy {
 }
 
 .swiper-button-next {
-  right: -37px;
+  right: 37px;
+  top: 360px;
+  color: var(--primary);
 }
 .swiper-button-prev {
-  left: -37px;
+  left: 37px;
+  top: 360px;
+  color: var(--primary);
 }
 
 .project {
@@ -333,24 +360,6 @@ footer .img {
     display: flex;
     flex-direction: column;
     gap: 28px;
-  }
-}
-
-@media screen and (min-width: 375px) {
-  .swiper-button-next {
-    right: -60px;
-  }
-  .swiper-button-prev {
-    left: -60px;
-  }
-}
-
-@media screen and (min-width: 425px) {
-  .swiper-button-next {
-    right: -64px;
-  }
-  .swiper-button-prev {
-    left: -64px;
   }
 }
 
@@ -398,12 +407,6 @@ footer .img {
   }
   figure .contactMe {
     margin: 32px 0 0;
-  }
-  .swiper-button-next {
-    right: -60px;
-  }
-  .swiper-button-prev {
-    left: -60px;
   }
 
   .cardSlide h2 {
